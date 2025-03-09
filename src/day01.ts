@@ -1,5 +1,4 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
+import { projectPath, readLines } from "./puzzle.ts";
 
 function numBytes(s: string): number {
   // String.prototype.length returns the number of UTF-16 code units, which
@@ -20,10 +19,6 @@ function numChars(s: string): number {
   return [...s].length;
 }
 
-function readLines(path: string): string[] {
-  return fs.readFileSync(path, { encoding: "utf-8" }).trimEnd().split("\n");
-}
-
 function totalCost(messages: string[]): number {
   let cost = 0;
 
@@ -42,6 +37,5 @@ function totalCost(messages: string[]): number {
   return cost;
 }
 
-const inputPath = path.resolve(import.meta.dirname, "../input/day01.txt");
-const messages = readLines(inputPath);
+const messages = readLines(projectPath("input/day01.txt"));
 console.log(totalCost(messages));
