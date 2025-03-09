@@ -9,3 +9,11 @@ export function projectPath(path: string): string {
 export function readLines(path: string): string[] {
   return readFileSync(path, { encoding: "utf-8" }).trimEnd().split("\n");
 }
+
+export function* enumerate<T>(iter: Iterable<T>): Generator<[number, T]> {
+  let i = 0;
+  for (const v of iter) {
+    yield [i, v];
+    i++;
+  }
+}

@@ -10,7 +10,7 @@ function numBytes(s: string): number {
 
 function numChars(s: string): number {
   // String.prototype.length returns the number of UTF-16 code units, which
-  // will differ from the number of UTF-8 characters.
+  // will differ from the number of Unicode characters.
   //
   // But a string is iterable by Unicode code points, which is what we consider
   // a "character" here.
