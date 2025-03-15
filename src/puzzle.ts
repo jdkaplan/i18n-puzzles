@@ -31,6 +31,10 @@ export function assert(
   }
 }
 
+export function fields(s: string, sep: string | RegExp = /\s+/): string[] {
+  return s.split(sep);
+}
+
 export function splitN(s: string, sep: string, limit: number): string[] {
   const parts: string[] = [];
   let i = 0;
