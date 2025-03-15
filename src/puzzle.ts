@@ -23,9 +23,9 @@ export function* enumerate<T>(iter: Iterable<T>): Generator<[number, T]> {
 }
 
 export function assert(
-  cond: boolean | null | undefined,
+  cond: unknown,
   msg: () => string = () => "assertion failed",
-): void {
+): asserts cond {
   if (!cond) {
     throw new Error(msg());
   }
